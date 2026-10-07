@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thukral Bakers</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #392316;
+      background: #fffaf2;
+    }
+    header {
+      padding: 22px 8%;
+      background: #6f351f;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header h1 { margin: 0; }
+    nav a {
+      color: white;
+      margin-left: 18px;
+      text-decoration: none;
+    }
+    .hero {
+      text-align: center;
+      padding: 90px 20px;
+      background: #f5dfc2;
+    }
+    .hero h2 { font-size: 42px; margin-bottom: 12px; }
+    .button {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 12px 22px;
+      background: #6f351f;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    section { padding: 45px 8%; text-align: center; }
+    .items {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 10px;
+      width: 210px;
+      box-shadow: 0 2px 10px #00000012;
+    }
+    footer {
+      padding: 22px;
+      background: #392316;
+      color: white;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Thukral Bakers</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#specialties">Our Treats</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h2>Freshly Baked, Made with Love</h2>
+      <p>Cakes, pastries, and baked treats for every celebration.</p>
+      <a class="button" href="#contact">Visit or Contact Us</a>
+    </div>
+
+    <section id="about">
+      <h2>Welcome to Thukral Bakers</h2>
+      <p>Your neighborhood bakery for delicious treats and special moments.</p>
+    </section>
+
+    <section id="specialties">
+      <h2>Our Treats</h2>
+      <div class="items">
+        <div class="card"><h3>Celebration Cakes</h3><p>Sweeten your special days.</p></div>
+        <div class="card"><h3>Pastries</h3><p>A little treat for any time.</p></div>
+        <div class="card"><h3>Fresh Bakes</h3><p>Made fresh for you to enjoy.</p></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Come Say Hello</h2>
+      <p>Address: Add your bakery address here</p>
+      <p>Phone: Add your phone number here</p>
+      <a class="button" href="tel:YOUR-PHONE-NUMBER">Call the Bakery</a>
+    </section>
+  </main>
+
+  <footer>© 2026 Thukral Bakers</footer>
+</body>
+</html>
