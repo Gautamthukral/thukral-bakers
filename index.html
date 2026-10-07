@@ -1,107 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thukral Bakers</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #392316;
-      background: #fffaf2;
-    }
-    header {
-      padding: 22px 8%;
-      background: #6f351f;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    header h1 { margin: 0; }
-    nav a {
-      color: white;
-      margin-left: 18px;
-      text-decoration: none;
-    }
-    .hero {
-      text-align: center;
-      padding: 90px 20px;
-      background: #f5dfc2;
-    }
-    .hero h2 { font-size: 42px; margin-bottom: 12px; }
-    .button {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 12px 22px;
-      background: #6f351f;
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-    section { padding: 45px 8%; text-align: center; }
-    .items {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-    .card {
-      background: white;
-      padding: 22px;
-      border-radius: 10px;
-      width: 210px;
-      box-shadow: 0 2px 10px #00000012;
-    }
-    footer {
-      padding: 22px;
-      background: #392316;
-      color: white;
-      text-align: center;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thukral Bakers | Freshly Baked Happiness</title>
+<meta name="description" content="Thukral Bakers — fresh cakes, pastries, breads, cookies and bakery treats made with care.">
+<style>
+:root{
+  --brown:#5b2c20;--cream:#fff8ef;--gold:#d99a42;--pink:#f4d5d0;
+  --text:#2c211d;--white:#fff;--shadow:0 12px 35px rgba(70,35,20,.12)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--cream);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(255,248,239,.95);backdrop-filter:blur(10px);border-bottom:1px solid #eadfd4}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:900;font-size:1.45rem;color:var(--brown);letter-spacing:.3px}
+.logo span{color:var(--gold)}
+nav{display:flex;gap:28px;font-weight:700;font-size:.95rem}
+nav a:hover{color:var(--gold)}
+.menu{display:none;border:0;background:none;font-size:1.6rem}
+.hero{min-height:680px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:45px;padding:70px 0}
+.badge{display:inline-block;background:var(--pink);color:var(--brown);padding:8px 15px;border-radius:999px;font-weight:800;font-size:.85rem;margin-bottom:18px}
+h1{font-family:Georgia,serif;font-size:clamp(3rem,6vw,5.5rem);line-height:.98;color:var(--brown);margin-bottom:22px}
+.hero p{font-size:1.12rem;max-width:590px;color:#66534b;margin-bottom:28px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 22px;border-radius:12px;font-weight:800;transition:.2s}
+.btn-primary{background:var(--brown);color:white}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-light{background:white;border:1px solid #e3d4c7}
+.hero-card{background:linear-gradient(145deg,#e9b477,#8e4930);border-radius:36px;min-height:500px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.cake{width:72%;aspect-ratio:1;position:relative;display:flex;align-items:center;justify-content:center}
+.cake:before{content:"";position:absolute;width:78%;height:46%;background:#fff3e5;border-radius:50%;bottom:13%;box-shadow:inset 0 -22px #e6a77e,0 16px 0 #d48b5f}
+.cake:after{content:"🍰";font-size:9rem;position:relative;z-index:2;filter:drop-shadow(0 15px 10px rgba(0,0,0,.18))}
+.floating{position:absolute;background:#fff;color:var(--brown);padding:12px 16px;border-radius:14px;font-weight:800;box-shadow:var(--shadow)}
+.f1{top:13%;left:8%}.f2{bottom:13%;right:7%}
+section{padding:85px 0}
+.section-head{text-align:center;margin-bottom:42px}
+.eyebrow{color:var(--gold);font-weight:900;text-transform:uppercase;letter-spacing:2px;font-size:.8rem}
+h2{font-family:Georgia,serif;color:var(--brown);font-size:clamp(2rem,4vw,3rem);margin:7px 0}
+.section-head p{color:#765f55}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.product{background:white;border-radius:22px;padding:14px;box-shadow:var(--shadow);overflow:hidden}
+.pic{height:185px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:5rem;background:#f7e5d2}
+.product:nth-child(2) .pic{background:#f3d9de}.product:nth-child(3) .pic{background:#eadfc8}.product:nth-child(4) .pic{background:#e3e8d8}
+.product h3{margin:15px 4px 3px;color:var(--brown)}
+.product p{font-size:.9rem;color:#76645c;margin:0 4px 10px}
+.price{font-weight:900;color:var(--gold);margin:0 4px 6px}
+.about{background:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about-box{background:var(--cream);padding:40px;border-radius:28px}
+.about-box h2{text-align:left}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:25px}
+.feature{background:white;padding:20px;border-radius:18px;box-shadow:0 7px 20px rgba(70,35,20,.07)}
+.feature b{display:block;color:var(--brown);margin-bottom:4px}
+.cta{background:var(--brown);color:white;border-radius:30px;padding:55px;text-align:center}
+.cta h2{color:white}
+.cta p{color:#f5ddd0;max-width:650px;margin:0 auto 25px}
+.cta .btn-primary{background:var(--gold);color:#2d1b13}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.contact{background:white;padding:25px;border-radius:20px;text-align:center;box-shadow:var(--shadow)}
+.contact .icon{font-size:2rem}
+.contact h3{color:var(--brown);margin:8px 0 3px}
+footer{background:#321b15;color:#eadbd2;padding:30px 0;margin-top:80px}
+.footer{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.small{font-size:.85rem;color:#bdaaa0}
+@media(max-width:850px){
+ nav{display:none}.menu{display:block}
+ .hero{grid-template-columns:1fr;padding:45px 0}.hero-card{min-height:390px}
+ .products{grid-template-columns:repeat(2,1fr)}
+ .about-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+ .products{grid-template-columns:1fr}.features{grid-template-columns:1fr}
+ h1{font-size:3.2rem}.hero-card{min-height:330px}
+ .cta{padding:38px 22px}.footer{flex-direction:column;text-align:center}
+}
+</style>
 </head>
 <body>
-  <header>
-    <h1>Thukral Bakers</h1>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#">Thukral <span>Bakers</span></a>
     <nav>
-      <a href="#about">About</a>
-      <a href="#specialties">Our Treats</a>
-      <a href="#contact">Contact</a>
+      <a href="#home">Home</a><a href="#products">Menu</a><a href="#about">About</a><a href="#contact">Contact</a>
     </nav>
-  </header>
+    <button class="menu" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('mobile')">☰</button>
+  </div>
+</header>
 
-  <main>
-    <div class="hero">
-      <h2>Freshly Baked, Made with Love</h2>
-      <p>Cakes, pastries, and baked treats for every celebration.</p>
-      <a class="button" href="#contact">Visit or Contact Us</a>
+<main id="home">
+<section class="hero container">
+  <div>
+    <div class="badge">Freshly baked • Made with love</div>
+    <h1>A little sweetness for every occasion.</h1>
+    <p>Welcome to <b>Thukral Bakers</b> — your neighbourhood bakery for fresh cakes, pastries, breads, cookies and delicious treats made to brighten your day.</p>
+    <div class="buttons">
+      <a class="btn btn-primary" href="#products">Explore Our Menu</a>
+      <a class="btn btn-light" href="#contact">Order / Contact</a>
     </div>
+  </div>
+  <div class="hero-card">
+    <div class="cake"></div>
+    <div class="floating f1">🎂 Fresh Cakes</div>
+    <div class="floating f2">✨ Baked Fresh</div>
+  </div>
+</section>
 
-    <section id="about">
-      <h2>Welcome to Thukral Bakers</h2>
-      <p>Your neighborhood bakery for delicious treats and special moments.</p>
-    </section>
+<section id="products">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Our favourites</div><h2>Fresh from the bakery</h2>
+      <p>Replace these sample items with your actual Thukral Bakers menu and prices.</p>
+    </div>
+    <div class="products">
+      <article class="product"><div class="pic">🎂</div><h3>Celebration Cakes</h3><p>Beautiful cakes for birthdays and special moments.</p><div class="price">Starting from ₹499</div></article>
+      <article class="product"><div class="pic">🧁</div><h3>Pastries & Cupcakes</h3><p>Soft, creamy and freshly prepared every day.</p><div class="price">Starting from ₹60</div></article>
+      <article class="product"><div class="pic">🥐</div><h3>Breads & Bakes</h3><p>Fresh bakery staples perfect for breakfast or tea.</p><div class="price">Starting from ₹50</div></article>
+      <article class="product"><div class="pic">🍪</div><h3>Cookies & Biscuits</h3><p>Crispy, buttery treats for every tea-time craving.</p><div class="price">Starting from ₹80</div></article>
+    </div>
+  </div>
+</section>
 
-    <section id="specialties">
-      <h2>Our Treats</h2>
-      <div class="items">
-        <div class="card"><h3>Celebration Cakes</h3><p>Sweeten your special days.</p></div>
-        <div class="card"><h3>Pastries</h3><p>A little treat for any time.</p></div>
-        <div class="card"><h3>Fresh Bakes</h3><p>Made fresh for you to enjoy.</p></div>
+<section id="about" class="about">
+  <div class="container about-grid">
+    <div class="about-box">
+      <div class="eyebrow">Why Thukral Bakers</div>
+      <h2>Made fresh. Served with a smile.</h2>
+      <p>We believe good bakery food should feel fresh, comforting and memorable. From everyday snacks to celebration cakes, Thukral Bakers is here for the moments that deserve something delicious.</p>
+      <div class="features">
+        <div class="feature"><b>🥖 Fresh Daily</b><span>Freshly baked favourites.</span></div>
+        <div class="feature"><b>🎂 Custom Cakes</b><span>Made for your occasions.</span></div>
+        <div class="feature"><b>❤️ Quality First</b><span>Care in every bake.</span></div>
+        <div class="feature"><b>📦 Easy Orders</b><span>Call or WhatsApp us.</span></div>
       </div>
-    </section>
+    </div>
+    <div>
+      <div class="section-head" style="text-align:left;margin-bottom:20px">
+        <div class="eyebrow">Your local bakery</div><h2>Something delicious is always waiting.</h2>
+      </div>
+      <p>Use this section to tell customers about your bakery, your story, specialities, years of experience, or what makes Thukral Bakers different.</p>
+      <br>
+      <a class="btn btn-primary" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</section>
 
-    <section id="contact">
-      <h2>Come Say Hello</h2>
-      <p>Address: Add your bakery address here</p>
-      <p>Phone: Add your phone number here</p>
-      <a class="button" href="tel:YOUR-PHONE-NUMBER">Call the Bakery</a>
-    </section>
-  </main>
+<section>
+  <div class="container">
+    <div class="cta">
+      <div class="eyebrow" style="color:#eab05e">Need a cake?</div>
+      <h2>Make your next celebration sweeter.</h2>
+      <p>Contact Thukral Bakers for cakes, pastries and bakery orders. Add your real WhatsApp number below before publishing.</p>
+      <a class="btn btn-primary" href="https://wa.me/91XXXXXXXXXX" target="_blank">💬 Order on WhatsApp</a>
+    </div>
+  </div>
+</section>
 
-  <footer>© 2026 Thukral Bakers</footer>
+<section id="contact">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Contact us</div><h2>Visit or get in touch</h2><p>Replace the sample details below with your real shop information.</p></div>
+    <div class="contact-grid">
+      <div class="contact"><div class="icon">📍</div><h3>Shop Address</h3><p>Your shop address<br>City, State</p></div>
+      <div class="contact"><div class="icon">📞</div><h3>Call Us</h3><p>+91 XXXXX XXXXX</p></div>
+      <div class="contact"><div class="icon">🕒</div><h3>Opening Hours</h3><p>Mon–Sun<br>8:00 AM – 9:00 PM</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer">
+    <div><b>Thukral Bakers</b><div class="small">Freshly baked happiness.</div></div>
+    <div class="small">© 2026 Thukral Bakers. All rights reserved.</div>
+  </div>
+</footer>
+<script>
+const style=document.createElement('style');
+style.textContent='@media(max-width:850px){nav.mobile{display:flex;position:absolute;top:72px;left:0;right:0;background:#fff8ef;padding:20px;flex-direction:column;gap:15px;border-bottom:1px solid #eadfd4}}';
+document.head.appendChild(style);
+</script>
 </body>
 </html>
